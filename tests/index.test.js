@@ -1,7 +1,13 @@
 import React from 'react'
 import { polyfill as polyfillPromise } from 'es6-promise'
-import { mount, render } from 'enzyme'
+import Enzyme, { mount, render } from 'enzyme'
+import EnzymeAdapter from 'enzyme-adapter-react-16.3';
 import sinon from 'sinon'
+
+// see
+Enzyme.configure({
+  adapter: new EnzymeAdapter()
+});
 
 if (!global.Promise) polyfillPromise()
 
